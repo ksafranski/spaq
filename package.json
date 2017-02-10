@@ -1,0 +1,61 @@
+{
+  "name": "spaq",
+  "version": "1.0.0",
+  "description": "Template for quickly starting an SPA",
+  "main": "index.js",
+  "repository": "git@github.com:Fluidbyte/spaq.git",
+  "author": "fluidbyte <kent@fluidbyte.net>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard --fix --verbose",
+    "test": "yarn run lint && yarn run cover",
+    "test:watch": "nodemon --exec \"mocha || exit 1\"",
+    "cover": "istanbul cover _mocha",
+    "start": "node ./server"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "istanbul": "^0.4.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "dirty-chai": "^1.2.2",
+    "jspm": "^0.16.52",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "proxyquire": "^1.7.11",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "standard": "^8.6.0"
+  },
+  "standard": {
+    "ignore": [
+      "coverage"
+    ],
+    "globals": [
+      "describe",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect",
+      "should",
+      "sinon",
+      "proxyquire"
+    ]
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "client"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}

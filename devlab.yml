@@ -1,0 +1,12 @@
+from: fluidbyte/node:latest
+expose:
+  - 9999:9999
+env:
+  - PORT=9999
+tasks:
+  start: yarn run start
+  upgrade: yarn upgrade --interactive
+  install: yarn
+  lint: yarn run lint
+  test: yarn run test
+  test:watch: yarn run test:watch
