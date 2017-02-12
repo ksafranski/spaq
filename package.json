@@ -51,7 +51,11 @@
     "directories": {
       "baseURL": "client"
     },
-    "dependencies": {},
+    "dependencies": {
+      "react": "npm:react@^15.4.2",
+      "react-dom": "npm:react-dom@^15.4.2",
+      "react-enroute": "npm:react-enroute@^1.0.0"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",

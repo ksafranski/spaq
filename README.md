@@ -10,6 +10,5 @@ This is a simple starter pack I put together for those times when I need a simpl
 * [Devlab](https://github.com/TechnologyAdvice/Devlab) config for running development in Docker
 * Yarn-based dependency management
 * Basic server (`/server`) with ExpressJS for hosting static assets and API services
-* Basic client (`/client`) with JSPM and SystemJS
-* Bootstrap on client for rapid prototyping UI
+* Basic client (`/client`) with JSPM + SystemJS using React
 * Test suite with everything from linting to mocking to coverage
