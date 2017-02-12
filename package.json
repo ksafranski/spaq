@@ -53,6 +53,7 @@
     },
     "dependencies": {
       "react": "npm:react@^15.4.2",
+      "react-bootstrap": "npm:react-bootstrap@^0.30.7",
       "react-dom": "npm:react-dom@^15.4.2",
       "react-enroute": "npm:react-enroute@^1.0.0"
     },

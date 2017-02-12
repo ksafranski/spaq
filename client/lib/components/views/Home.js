@@ -1,12 +1,12 @@
 import React from 'react'
+import PageHeader from 'react-bootstrap/lib/PageHeader'
 
 class Home extends React.Component {
   render () {
     return (
-      <div>
-        <h1>Welcome</h1>
-        <p>Nothingness. Purity. Emptyness.</p>
-      </div>
+      <PageHeader>
+        Hello!<br /><small>Welcome to this starter app</small>
+      </PageHeader>
     )
   }
 }

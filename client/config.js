@@ -18,6 +18,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "core-js": "npm:core-js@1.2.7",
     "react": "npm:react@15.4.2",
+    "react-bootstrap": "npm:react-bootstrap@0.30.7",
     "react-dom": "npm:react-dom@15.4.2",
     "react-enroute": "npm:react-enroute@1.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -80,6 +81,10 @@ System.config({
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:babel-runtime@6.22.0": {
+      "core-js": "npm:core-js@2.4.1",
+      "regenerator-runtime": "npm:regenerator-runtime@0.10.1"
+    },
     "npm:browserify-zlib@0.1.4": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -100,6 +105,12 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:core-js@1.2.7": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
+    },
+    "npm:core-js@2.4.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -141,6 +152,10 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:invariant@2.2.2": {
+      "loose-envify": "npm:loose-envify@1.3.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:isomorphic-fetch@2.2.1": {
       "node-fetch": "npm:node-fetch@1.6.3",
@@ -189,6 +204,20 @@ System.config({
     "npm:punycode@1.3.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:react-bootstrap@0.30.7": {
+      "babel-runtime": "npm:babel-runtime@6.22.0",
+      "classnames": "npm:classnames@2.2.5",
+      "dom-helpers": "npm:dom-helpers@2.4.0",
+      "invariant": "npm:invariant@2.2.2",
+      "keycode": "npm:keycode@2.1.8",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react": "npm:react@15.4.2",
+      "react-dom": "npm:react-dom@15.4.2",
+      "react-overlays": "npm:react-overlays@0.6.10",
+      "react-prop-types": "npm:react-prop-types@0.4.0",
+      "uncontrollable": "npm:uncontrollable@4.0.3",
+      "warning": "npm:warning@3.0.0"
+    },
     "npm:react-dom@15.4.2": {
       "fbjs": "npm:fbjs@0.8.9",
       "loose-envify": "npm:loose-envify@1.3.1",
@@ -199,6 +228,18 @@ System.config({
     "npm:react-enroute@1.0.0": {
       "enroute": "npm:enroute@1.0.1",
       "react": "npm:react@15.4.2"
+    },
+    "npm:react-overlays@0.6.10": {
+      "classnames": "npm:classnames@2.2.5",
+      "dom-helpers": "npm:dom-helpers@2.4.0",
+      "react": "npm:react@15.4.2",
+      "react-dom": "npm:react-dom@15.4.2",
+      "react-prop-types": "npm:react-prop-types@0.4.0",
+      "warning": "npm:warning@3.0.0"
+    },
+    "npm:react-prop-types@0.4.0": {
+      "react": "npm:react@15.4.2",
+      "warning": "npm:warning@3.0.0"
     },
     "npm:react@15.4.2": {
       "fbjs": "npm:fbjs@0.8.9",
@@ -228,6 +269,10 @@ System.config({
       "string_decoder": "npm:string_decoder@0.10.31",
       "util-deprecate": "npm:util-deprecate@1.0.2"
     },
+    "npm:regenerator-runtime@0.10.1": {
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:setimmediate@1.0.5": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -241,6 +286,11 @@ System.config({
     },
     "npm:ua-parser-js@0.7.12": {
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
+    },
+    "npm:uncontrollable@4.0.3": {
+      "invariant": "npm:invariant@2.2.2",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react": "npm:react@15.4.2"
     },
     "npm:url@0.10.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -257,6 +307,10 @@ System.config({
     },
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
+    },
+    "npm:warning@3.0.0": {
+      "loose-envify": "npm:loose-envify@1.3.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     }
   }
 });
