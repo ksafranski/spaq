@@ -5,7 +5,8 @@ const HTTPError = require('http-errors')
 const reqFixture = {
   originalUrl: 'foo',
   method: 'get',
-  headers: { 'x-forwarded-for': '1.1.1.1' }
+  headers: { 'x-forwarded-for': '1.1.1.1' },
+  sessionId: '1111-2222-3333'
 }
 
 describe('server > lib > response', () => {
@@ -38,6 +39,7 @@ describe('server > lib > response', () => {
       expect(logInfoStub).to.be.calledWith('Success Response', {
         route: reqFixture.originalUrl,
         method: reqFixture.method.toUpperCase(),
+        sessionId: reqFixture.sessionId,
         ip: reqFixture.headers['x-forwarded-for']
       })
     })
@@ -51,6 +53,7 @@ describe('server > lib > response', () => {
       expect(logErrorStub).to.be.calledWith('Error Response', {
         route: reqFixture.originalUrl,
         method: reqFixture.method.toUpperCase(),
+        sessionId: reqFixture.sessionId,
         ip: reqFixture.headers['x-forwarded-for'],
         code: 404,
         error: 'Not Found'
@@ -64,6 +67,7 @@ describe('server > lib > response', () => {
       expect(logErrorStub).to.be.calledWith('Error Response', {
         route: reqFixture.originalUrl,
         method: reqFixture.method.toUpperCase(),
+        sessionId: reqFixture.sessionId,
         ip: reqFixture.headers['x-forwarded-for'],
         code: 500,
         error: 'Internal Server Error'

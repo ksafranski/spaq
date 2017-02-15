@@ -8,6 +8,7 @@ const response = {
     log.info('Success Response', {
       route: req.originalUrl,
       method: req.method.toUpperCase(),
+      sessionId: req.sessionId,
       ip: getIP(req)
     })
     res.status(200).send(res.data)
@@ -17,6 +18,7 @@ const response = {
     log.error('Error Response', {
       route: req.originalUrl,
       method: req.method.toUpperCase(),
+      sessionId: req.sessionId,
       ip: getIP(req),
       code: statusCode,
       error: error.message || 'Internal Server Error'
