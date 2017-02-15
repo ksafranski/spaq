@@ -6,7 +6,7 @@ env:
 tasks:
   start: yarn run start
   upgrade: yarn upgrade --interactive
-  install: yarn
+  install: yarn && jspm install
   lint: yarn run lint
   test: yarn run test
   test:watch: yarn run test:watch
