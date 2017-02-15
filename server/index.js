@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+const log = require('./lib/log')
 const authentication = require('./lib/authentication')
 const api = require('./lib/api')
 const response = require('./lib/response')
@@ -28,4 +29,9 @@ app.get('*', (req, res) => {
 // Handle middleware errors
 app.use(response.error)
 
-app.listen(PORT, () => console.log(`Server running on ${PORT}`))
+app.listen(PORT, () => {
+  log.info('Server Started', {
+    port: PORT,
+    timestamp: new Date()
+  })
+})
