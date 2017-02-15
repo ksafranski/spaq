@@ -10,3 +10,4 @@ tasks:
   lint: yarn run lint
   test: yarn run test
   test:watch: yarn run test:watch
+  dev: yarn run dev

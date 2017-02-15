@@ -11,12 +11,18 @@
     "test": "yarn run lint && yarn run cover",
     "test:watch": "nodemon --exec \"mocha || exit 1\"",
     "cover": "istanbul cover _mocha",
-    "start": "node ./server"
+    "start": "node ./server",
+    "dev": "nodemon ./server"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
+    "bristol": "^0.3.3",
     "express": "^4.14.1",
-    "istanbul": "^0.4.5"
+    "http-errors": "^1.5.1",
+    "istanbul": "^0.4.5",
+    "obey": "^1.7.3",
+    "require-dir": "^0.3.1",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
