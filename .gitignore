@@ -1,3 +1,4 @@
 node_modules/
 client/jspm_packages
 coverage/
+yarn-error.log
