@@ -1,9 +1,4 @@
-const obey = require('obey')
-const uuid = require('uuid')
-
-obey.creator('uuid', uuid.v4)
-obey.creator('timestamp', () => Date.now())
-obey.modifier('timestamp', () => Date.now())
+const models = require('../lib/models')
 
 const user = obey.model({
   id: { type: 'uuid', creator: 'uuid' },
