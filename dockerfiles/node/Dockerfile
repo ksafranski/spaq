@@ -1,8 +1,16 @@
 FROM mhart/alpine-node:6.9
 
-RUN apk update
-RUN apk add make gcc
-RUN apk add bash
+# Utils
+RUN apk add --update \
+    make \
+    gcc \
+    bash \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
 
 RUN npm i yarn -g
 
