@@ -21,11 +21,11 @@ const authentication = (req, res, next) => {
       req.token = jwt.decode(req.headers.authorization, process.env.AUTH_JWT_SECRET)
       next()
     } catch (e) {
-      next(new HTTPError(403))
+      next(new HTTPError(403, 'Unauthorized'))
     }
   }
   // Default to 403
-  next(new HTTPError(403))
+  next(new HTTPError(403, 'Not Authenticated'))
 }
 
 module.exports = authentication
