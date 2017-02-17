@@ -1,6 +1,6 @@
 const obey = require('../lib/models')
 
-const user = obey.model({
+const model = obey.model({
   id: { type: 'uuid', creator: 'uuid' },
   fname: { type: 'string', required: true },
   lname: { type: 'string', required: true },
@@ -10,4 +10,7 @@ const user = obey.model({
   modified: { type: 'string', modifier: 'timestamp' }
 })
 
-module.exports = user
+module.exports = {
+  collection: 'users',
+  model
+}
