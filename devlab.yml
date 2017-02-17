@@ -1,9 +1,15 @@
 from: fluidbyte/node:latest
+services:
+  - mongodb:
+      from: mongo:latest
 expose:
   - 9999:9999
 env:
   - PORT=9999
+before: |
+  export MONGODB_CONN=mongodb://$MONGODB_PORT_27017_TCP_ADDR/test
 tasks:
+  env: env | sort
   start: yarn run start
   upgrade: yarn upgrade --interactive
   install: yarn && jspm install
