@@ -1,4 +1,4 @@
-const models = require('../lib/models')
+const obey = require('../lib/models')
 
 const user = obey.model({
   id: { type: 'uuid', creator: 'uuid' },
