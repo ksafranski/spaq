@@ -15,12 +15,14 @@
     "dev": "nodemon ./server"
   },
   "dependencies": {
+    "argon2": "^0.15.0",
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
     "bristol": "^0.3.3",
     "express": "^4.14.1",
     "http-errors": "^1.5.1",
     "istanbul": "^0.4.5",
+    "jwt-simple": "^0.5.1",
     "mongodb": "^2.2.24",
     "obey": "^1.7.3",
     "promised-mongo": "^1.2.0",

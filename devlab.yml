@@ -6,14 +6,18 @@ expose:
   - 9999:9999
 env:
   - PORT=9999
+  - AUTH_PASSWORD_SALT=ZV2YWOXF3YC70VIEQPVH
+  - AUTH_JWT_SECRET=GFPNJJIFEDD2ECUGAD27
 before: |
   export MONGODB_CONN=mongodb://$MONGODB_PORT_27017_TCP_ADDR/test
 tasks:
   env: env | sort
-  start: yarn run start
+  start: |
+    NODE_ENV=production
+    yarn run start
+  start:dev: yarn run dev
   upgrade: yarn upgrade --interactive
   install: yarn && jspm install
   lint: yarn run lint
   test: yarn run test
   test:watch: yarn run test:watch
-  dev: yarn run dev
