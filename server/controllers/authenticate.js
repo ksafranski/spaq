@@ -29,8 +29,9 @@ const controller = {
           iss: pkg.name,
           exp: Date.now() + process.env.AUTH_JWT_EXPIRES,
           context: {
-            res[0]
-          }, process.env.AUTH_JWT_SECRET)
+            permissions: res[0]
+          }
+        }, process.env.AUTH_JWT_SECRET)
       })
   }
 }
