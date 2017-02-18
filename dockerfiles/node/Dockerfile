@@ -14,4 +14,6 @@ RUN apk add --update \
 
 RUN npm i yarn -g
 
+RUN npm i jspm -g
+
 CMD ["/bin/bash"]
