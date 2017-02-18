@@ -1,32 +1,44 @@
+const fixture = require('test/fixtures/server/api.json')
 const api = proxyquire('server/lib/api', {
   'require-dir': () => {
     return {
-      foo: {
-        get: () => Promise.resolve({ foo: 'bar' })
-      },
-      fizz: {
-        get: () => Promise.reject(new Error('buzz'))
+      user: {
+        getUser: () => Promise.resolve({ foo: 'bar' })
       }
     }
   }
 })
 
 describe('server > lib > api', () => {
-  it('calls next and returns with an error 404 if controller does not exist', () => {
-    api({ params: { controller: 'nope' } }, {}, (err) => {
-      expect(err.statusCode).to.equal(404)
+  describe('parseAPI', () => {
+    it('traverses raw routes json object and returns array of endpoints', () => {
+      expect(api.parseAPI(fixture)[0]).to.deep.equal({
+        exec: 'getFoo',
+        permission: 'readFoo',
+        method: 'get',
+        path: '/api/foo/',
+        controller: 'foo'
+      })
     })
   })
-  it('calls next and returns data in res object when controller executes and resolves', () => {
-    const res = {}
-    api({ params: { controller: 'foo' }, method: 'GET' }, res, (err) => {
-      expect(err).to.be.undefined
-      expect(res.data).to.deep.equal({ foo: 'bar' })
-    })
-  })
-  it('calls next and returns an error when controller executes and rejects', () => {
-    api({ params: { controller: 'fizz' }, method: 'GET' }, {}, (err) => {
-      expect(err.message).to.equal('buzz')
+  describe('build', () => {
+    const appGetStub = sinon.stub()
+    const appPostStub = sinon.stub()
+    const appPutStub = sinon.stub()
+    const appDeleteStub = sinon.stub()
+    const app = {
+      get: appGetStub,
+      post: appPostStub,
+      put: appPutStub,
+      delete: appDeleteStub
+    }
+    afterEach(() => appGetStub.reset())
+    it('traverses routes to build app endpoints', () => {
+      api.build(app, fixture)
+      expect(appGetStub).to.be.calledTwice()
+      expect(appPostStub).to.be.calledOnce()
+      expect(appPutStub).to.be.calledOnce()
+      expect(appDeleteStub).to.be.calledOnce()
     })
   })
 })

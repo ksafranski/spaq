@@ -1,0 +1,40 @@
+{
+  "user": {
+    "/": {
+      "get": {
+        "exec": "getUser",
+        "permission": "readUser"
+      },
+      "post": {
+        "exec": "createUser",
+        "permission": "writeUser"
+      }
+    },
+    "/:id": {
+      "get": {
+        "exec": "getUser",
+        "permission": "readUser"
+      },
+      "put": {
+        "exec": "updateUser",
+        "permission": "writeUser"
+      },
+      "patch": {
+        "exec": "updateUser",
+        "permission": "writeUser"
+      },
+      "delete": {
+        "exec": "deleteUser",
+        "permission": "writeUser"
+      }
+    }
+  },
+  "authenticate": {
+    "/": {
+      "post": {
+        "exec": "authenticate",
+        "public": true
+      }
+    }
+  }
+}

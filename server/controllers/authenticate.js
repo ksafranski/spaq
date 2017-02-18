@@ -11,7 +11,7 @@ const controller = {
    * @param {Object} event The request event object
    * @returns {Object.<promise>}
    */
-  post: (event) => {
+  authenticate: (event) => {
     const salt = new Buffer(process.env.AUTH_PASSWORD_SALT)
     return mongodb.read(user.collection, { email: event.body.email })
       .then((res) => {

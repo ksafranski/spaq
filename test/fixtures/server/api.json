@@ -1,0 +1,28 @@
+{
+  "foo": {
+    "/": {
+      "get": {
+        "exec": "getFoo",
+        "permission": "readFoo"
+      },
+      "post": {
+        "exec": "postFoo",
+        "permission": "writeFoo"
+      }
+    },
+    "/:id": {
+      "get": {
+        "exec": "getFoo",
+        "public": true
+      },
+      "put": {
+        "exec": "updateFoo",
+        "public": true
+      },
+      "delete": {
+        "exec": "deleteFoo",
+        "public": true
+      }
+    }
+  }
+}

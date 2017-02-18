@@ -2,7 +2,7 @@ const obey = require('../lib/models')
 const argon2 = require('argon2')
 
 const salt = new Buffer(process.env.AUTH_PASSWORD_SALT)
-obey.modifier('encrypt', val => argon2.hash(val, salt))
+obey.modifier('encrypt', val => val ? argon2.hash(val, salt) : undefined)
 
 const model = obey.model({
   fname: { type: 'string', required: true },

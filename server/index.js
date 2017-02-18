@@ -2,11 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
 const uuid = require('uuid')
-
 const log = require('./lib/log')
-const authentication = require('./lib/authentication')
-const api = require('./lib/api')
 const response = require('./lib/response')
+const api = require('./lib/api')
+const apiConfig = require('./api.json')
 
 const pubRoot = path.resolve(__dirname, '../client')
 
@@ -36,8 +35,8 @@ app.use((req, res, next) => {
 // Serve static assets
 app.use(express.static(pubRoot))
 
-// Serve API
-app.all('/api/:controller/:id?', [ authentication, api, response.success ])
+// Build API from api.json
+api.build(app, apiConfig)
 
 // Support routing on the client app
 app.get('*', (req, res) => {

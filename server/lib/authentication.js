@@ -7,7 +7,7 @@ const publicRoutes = {
   'authenticate': [ 'post' ]
 }
 
-const authentication = (req, res, next) => {
+const authentication = (permission) => (req, res, next) => {
   // Check if accessing public route
   if (publicRoutes[req.params.controller] && publicRoutes[req.params.controller].indexOf(req.method.toLowerCase()) >= 0) {
     // Attempting to access public route
