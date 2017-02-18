@@ -3,6 +3,7 @@ const jwt = require('jwt-simple')
 const argon2 = require('argon2')
 const mongodb = require('../adapters/mongodb')
 const user = require('../models/user')
+const pkg = require('../../package.json')
 
 const controller = {
   /**
@@ -24,7 +25,12 @@ const controller = {
           return new HTTPError(403, 'Invalid password')
         }
         // Everything checks out, return JWT
-        return jwt.encode(res[0], process.env.AUTH_JWT_SECRET)
+        return jwt.encode({
+          iss: pkg.name,
+          exp: Date.now() + process.env.AUTH_JWT_EXPIRES,
+          context: {
+            res[0]
+          }, process.env.AUTH_JWT_SECRET)
       })
   }
 }
