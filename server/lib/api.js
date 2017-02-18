@@ -41,8 +41,9 @@ const api = {
    * Build exec middleware for endpoint
    */
   buildEndpointExec: (ep) => (req, res, next) => {
-    if (!controllers[ep.controller]) {
+    if (!controllers[ep.controller] || !controllers[ep.controller][ep.exec]) {
       next(new HTTPError(404))
+      return
     }
     controllers[ep.controller][ep.exec](req)
       .then((result) => {
