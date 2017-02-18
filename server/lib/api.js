@@ -39,6 +39,8 @@ const api = {
   },
   /**
    * Build exec middleware for endpoint
+   * @param {Object} ep The endpoint configuration
+   * @returns {Function}
    */
   buildEndpointExec: (ep) => (req, res, next) => {
     if (!controllers[ep.controller] || !controllers[ep.controller][ep.exec]) {
