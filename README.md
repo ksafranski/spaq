@@ -7,11 +7,11 @@ A core server and client setup to allow for rapid prototyping SPA's. The goal of
 
 ### Server
 
-Express-based server that serves both the static assets (`/client`) and an API. [More information...](/server/README.md)
+Express-based server that serves both the static assets (`/client`) and an API. **[Documentation](/server/README.md)**
 
 ### Client
 
-React SPA with basic starting components, SystemJS and Bootstrap. [More Information...](/client/README.md)
+React SPA with basic starting components, SystemJS and Bootstrap. **[Documentation](/client/README.md)**
 
 ## Quick Start
 
@@ -24,6 +24,26 @@ devlab install start:dev
 ```
 
 _Note: after the first run, the `install` command is not needed as all dependencies will be installed_
+
+## Configuration
+
+The default configuration in [`devlab.yml`](devlab.yml) includes the following:
+
+### Ports
+
+The only expose port is (by default) `9999`, this is exposed on the primary docker container so the application can be accessed at `http://localhost:9999`.
+
+### Authentication
+
+The following environment variables are used by the server for authentication purposes:
+
+* `AUTH_PASSWORD_SALT`: Unique salt with which the password for users is hashed (argon2)
+* `AUTH_JWT_SECRET`: Secret used when encoding the JSON Web Tokens
+* `AUTH_JWT_EXPIRES`: Expiration time for JSON Web Tokens (default `86400000` or 24 hours)
+
+### API
+
+Configuration guide for the API (and setting up additional routes, models and controllers) can be found in the [Server Documentation](/server/README.md)
 
 ## Commands
 
