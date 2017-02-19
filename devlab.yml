@@ -13,6 +13,7 @@ before: |
   export MONGODB_CONN=mongodb://$MONGODB_PORT_27017_TCP_ADDR/test
 tasks:
   env: env | sort
+  shell: /bin/bash
   start: |
     NODE_ENV=production
     yarn run start
