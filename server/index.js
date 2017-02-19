@@ -23,6 +23,9 @@ try {
 /* istanbul ignore next */
 const getIP = (req) => req.headers['x-forwarded-for'] || req.connection.remoteAddress
 
+// Set EJS for loading dist v. dev
+app.set('view engine', 'ejs')
+
 // Use body-parser; json
 app.use(bodyParser.json())
 
@@ -48,7 +51,9 @@ api.build(app, apiConfig)
 
 // Support routing on the client app
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(pubRoot, 'index.html'))
+  res.render(path.resolve(pubRoot, 'index.ejs'), {
+    env: process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'dev'
+  })
 })
 
 // Handle middleware errors

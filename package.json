@@ -12,6 +12,7 @@
     "test:watch": "nodemon --exec \"mocha || exit 1\"",
     "cover": "istanbul cover _mocha",
     "start": "node ./server",
+    "build": "jspm bundle lib/main client/dist.js",
     "dev": "nodemon ./server"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
     "bristol": "^0.3.3",
+    "ejs": "^2.5.6",
     "express": "^4.14.1",
     "http-errors": "^1.5.1",
     "istanbul": "^0.4.5",

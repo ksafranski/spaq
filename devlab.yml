@@ -16,6 +16,7 @@ before: |
 tasks:
   env: env | sort
   shell: /bin/bash
+  build: yarn run build
   clean: |
     rm -rf node_modules
     rm -rf client/jspm_packages
@@ -26,7 +27,7 @@ tasks:
   clean:coverage: rm -rf coverage
   clean:data: rm -rf data
   start: |
-    NODE_ENV=production
+    export NODE_ENV=production
     yarn run start
   start:dev: yarn run dev
   upgrade: yarn upgrade-interactive

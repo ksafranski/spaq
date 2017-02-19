@@ -6,6 +6,18 @@ The client is developed to work "out of the box", with very little configuration
 
 Since the goal of this project is rapid prototyping the client uses [JSPM](http://jspm.io) with the system configured to separate out client modules in the [`/package.json`](/package.json) (under the `jspm` property) so if the desired goal is to separate the client application from the server this process can be done easily.
 
+## Development vs. Production
+
+In order to simplify production runs, the primary file for the application is an EJS file ([`client/index.ejs`](/client/index.ejs)).
+
+### Development
+
+Running the application via `devlab start:dev` will load in development mode and use the source files.
+
+### Production
+
+Once the application has been built via `devlab build` it can then be run with the generated `dist.js` file. Running `devlab start` will start the application in production mode.
+
 ## Module Loading & ES6 Compatibility
 
 JSPM loads [BabelJS](https://babeljs.io/), along with [SystemJS](https://github.com/systemjs/systemjs) to load modules.
@@ -15,7 +27,7 @@ The client includes [ReactJS](https://facebook.github.io/react/) as the framewor
 
 ## User Interface
 
-The [`index.html`](/client/index.html) file loads some default icons as well as a [bootswatch theme](https://www.bootstrapcdn.com/bootswatch/) and an override CSS file; [`css/main.css`](/client/css/main.css).
+The [`index.ejs`](/client/index.ejs) file loads some default icons as well as a [bootswatch theme](https://www.bootstrapcdn.com/bootswatch/) and an override CSS file; [`css/main.css`](/client/css/main.css).
 
 ## App Entrypoint
 

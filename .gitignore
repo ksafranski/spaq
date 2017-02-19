@@ -1,5 +1,7 @@
 node_modules/
 client/jspm_packages
+client/dist.js
+client/dist.js.map
 coverage/
 data/
 yarn-error.log
