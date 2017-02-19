@@ -106,3 +106,18 @@ The entire process of authentication involves:
   2a. The JWT is validated and decoded
   2b. The token's `permissions` is checked against the route which the user is attempting to access
 3. The attempt is either passed to the controller or a `403` error is returned
+
+## Logging
+
+The [lib/log](/server/lib/log.js) file exposes the [Bristol](https://github.com/TomFrost/Bristol) logging library for use universally throughout the application server.
+
+Logging can be achieved by:
+
+```javascript
+const log = require('lib/log')
+
+// log.<level>(<message>, <object>)
+log.error('Something failed', { foo: 'bar' })
+```
+
+By default, logs are sent to `console` with `human` formatting. See the Bristol documentation for additional configuration.
