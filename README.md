@@ -44,6 +44,8 @@ The following commands are available for working with the application:
   * `devlab test`: runs linting and full tests (with coverage)
   * `devlab test:watch`: runs test suite with reload on change
 
+_Note: many of these commands can be run in tandem, for instance, to start a clean (data-free) run of the application in `development` mode, run `devlab clean:data start:dev`._
+
 ## License
 
 This project is released under the MIT license. Feel free to use, abuse, modify, and so-on (with proper attribution).
