@@ -1,8 +1,5 @@
 const log = require('./log')
 
-/* istanbul ignore next */
-const getIP = (req) => req.headers['x-forwarded-for'] || req.connection.remoteAddress
-
 const response = {
   /**
    * Processes a success response from the controller
@@ -15,7 +12,7 @@ const response = {
       route: req.originalUrl,
       method: req.method.toUpperCase(),
       sessionId: req.sessionId,
-      ip: getIP(req)
+      ip: req.clientIP
     })
     res.status(200).send(res.data)
   },
@@ -32,7 +29,7 @@ const response = {
       route: req.originalUrl,
       method: req.method.toUpperCase(),
       sessionId: req.sessionId,
-      ip: getIP(req),
+      ip: req.clientIP,
       code: statusCode,
       error: error.message || 'Internal Server Error'
     })

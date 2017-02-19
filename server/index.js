@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const reqIP = require('request-ip')
 const path = require('path')
 const uuid = require('uuid')
 const log = require('./lib/log')
@@ -20,9 +21,6 @@ try {
   process.exit(1)
 }
 
-/* istanbul ignore next */
-const getIP = (req) => req.headers['x-forwarded-for'] || req.connection.remoteAddress
-
 // Set EJS for loading dist v. dev
 app.set('view engine', 'ejs')
 
@@ -33,12 +31,14 @@ app.use(bodyParser.json())
 app.use((req, res, next) => {
   // Add id to req for tracking
   req.sessionId = uuid()
+  // Add parsed IP address
+  req.clientIP = reqIP.getClientIp(req)
   // Log request
   log.info('Request', {
     route: req.originalUrl,
     method: req.method.toUpperCase(),
     sessionId: req.sessionId,
-    ip: getIP(req)
+    ip: req.clientIP
   })
   next()
 })
@@ -49,7 +49,7 @@ app.use(express.static(pubRoot))
 // Build API from api.json
 api.build(app, apiConfig)
 
-// Support routing on the client app
+// Serve and support routing on the client app
 app.get('*', (req, res) => {
   res.render(path.resolve(pubRoot, 'index.ejs'), {
     env: process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'dev'
@@ -59,6 +59,7 @@ app.get('*', (req, res) => {
 // Handle middleware errors
 app.use(response.error)
 
+// Start 'em up, log 'em out
 app.listen(PORT, () => {
   log.info('Server Started', {
     port: PORT,

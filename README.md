@@ -1,9 +1,9 @@
 # SPAQ
-**Single Page App Quick-Start**
+**Single Page App, Quick!**
 
 ## Summary:
 
-A core server and client setup to allow for rapid prototyping SPA's. The goal of this project is to make few assumptions and setup everything needed to start development imediately.
+A server and client setup to allow for rapid prototyping SPA's. The goal of this project is to make few assumptions and setup everything needed to start development imediately.
 
 **Server:** Express-based server that serves both the static assets (`/client`) and an API. **[Documentation &raquo;](/server/README.md)**
 
@@ -27,13 +27,13 @@ The default configuration in [`devlab.yml`](devlab.yml) includes the following:
 
 ### Ports
 
-The only expose port is (by default) `9999`, this is exposed on the primary docker container so the application can be accessed at `http://localhost:9999`.
+The only exposed port is (by default) `9999`. This is exposed on the primary docker container so the application can be accessed at `http://localhost:9999`.
 
 ### Authentication
 
 The following environment variables are used by the server for authentication purposes:
 
-* `AUTH_PASSWORD_SALT`: Unique salt with which the password for users is hashed (argon2)
+* `AUTH_PASSWORD_SALT`: Unique salt with which the password for users is hashed using argon2
 * `AUTH_JWT_SECRET`: Secret used when encoding the JSON Web Tokens
 * `AUTH_JWT_EXPIRES`: Expiration time for JSON Web Tokens (default `86400000` or 24 hours)
 
@@ -47,6 +47,7 @@ The following commands are available for working with the application:
 
   * `devlab env`: show all environemtn variables
   * `devlab shell`: starts container(s) with interactive shell
+  * `devlab build`: builds `client/dist.js` for production runs
   * `devlab clean`: removes dependencies, data, and generated coverage files
   * `devlab clean:node_modules` removes `/node_modules`
   * `devlab clean:jspm_packages`: removes `/client/jspm_packages`
