@@ -3,32 +3,46 @@
 
 ## Summary:
 
-This is a simple starter-pack I put together for those times when you need a simple base for starting an SPA.
+A core server and client setup to allow for rapid prototyping SPA's. The goal of this project is to make few assumptions and setup everything needed to start development imediately.
 
-## Includes:
+### Server
 
-* [Devlab](https://github.com/TechnologyAdvice/Devlab) config for running development in Docker
-* Yarn-based dependency management
-* Basic server (`/server`) with ExpressJS for hosting static assets, API services and logging
-* Basic client (`/client`) with JSPM + SystemJS using React
-* Test suite with everything from linting to mocking to coverage
+Express-based server that serves both the static assets (`/client`) and an API. [More information...](/server/README.md)
 
-## Goal:
+### Client
 
-As stated in the summary, this is a simple starter-pack for spinning up an SPA with both the client and server code in one place for rapid-prototyping. However, the additional goals are:
+React SPA with basic starting components, SystemJS and Bootstrap. [More Information...](/client/README.md)
 
-* KISS: no complex build tool-chains or steps
-* Easily separation between client and server
-  * JSPM separation in [`package.json`](/package.json)
-  * No hard-code tie-ins with the server to run the client app
-* Solidly tested core server code for API
-* Supports easy service prototyping with Devlab (Docker)
+## Quick Start
 
-## Getting Started
+The goal of this project being rapid prototyping and development, the project uses Docker (with [Devlab](https://github.com/TechnologyAdvice/DevLab)) to allow both the application and its database to be run with very little configuration.
 
-1. Ensure [Devlab](https://github.com/TechnologyAdvice/Devlab) is installed (`npm i -g devlab`)
-2. Install all dependencies: `lab install`
-3. Run it (dev-mode): `lab dev`
+*After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)* the application can be run with the following command:
+
+```
+devlab install start:dev
+```
+
+_Note: after the first run, the `install` command is not needed as all dependencies will be installed_
+
+## Commands
+
+The following commands are available for working with the application:
+
+  * `devlab env`: show all environemtn variables
+  * `devlab shell`: starts container(s) with interactive shell
+  * `devlab clean`: removes dependencies, data, and generated coverage files
+  * `devlab clean:node_modules` removes `/node_modules`
+  * `devlab clean:jspm_packages`: removes `/client/jspm_packages`
+  * `devlab clean:coverage`: removes `/coverage`
+  * `devlab clean:data`: removes `/data` (MongoDB data volume)
+  * `devlab start`: starts the application (production)
+  * `devlab start:dev`: starts the application (development)
+  * `devlab upgrade`: runs interactive yarn upgrade 
+  * `devlab install`: installs all project dependencies
+  * `devlab lint`: runs lint task
+  * `devlab test`: runs linting and full tests (with coverage)
+  * `devlab test:watch`: runs test suite with reload on change
 
 ## License
 
