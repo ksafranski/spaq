@@ -5,19 +5,19 @@
 
 A core server and client setup to allow for rapid prototyping SPA's. The goal of this project is to make few assumptions and setup everything needed to start development imediately.
 
-### Server
+**Server:** Express-based server that serves both the static assets (`/client`) and an API.
 
-Express-based server that serves both the static assets (`/client`) and an API. **[Documentation](/server/README.md)**
+**[Server Documentation](/server/README.md)**
 
-### Client
+**Client:** React SPA with basic starting components, SystemJS and Bootstrap.
 
-React SPA with basic starting components, SystemJS and Bootstrap. **[Documentation](/client/README.md)**
+**[Client Documentation](/client/README.md)**
 
 ## Quick Start
 
 The goal of this project being rapid prototyping and development, the project uses Docker (with [Devlab](https://github.com/TechnologyAdvice/DevLab)) to allow both the application and its database to be run with very little configuration.
 
-**After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)** the application can be run with the following command:
+**After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)**, the application can be run with the following command:
 
 ```
 devlab install start:dev
