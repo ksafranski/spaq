@@ -2,6 +2,8 @@ from: fluidbyte/node:latest
 services:
   - mongodb:
       from: mongo:latest
+      volumes:
+        - ${PWD}/data:/data/db
 expose:
   - 9999:9999
 env:
@@ -14,6 +16,15 @@ before: |
 tasks:
   env: env | sort
   shell: /bin/bash
+  clean: |
+    rm -rf node_modules
+    rm -rf client/jspm_packages
+    rm -rf coverage
+    rm -rf data
+  clean:node_modules: rm -rf node_modules
+  clean:jspm_packages: rm -rf jspm_packages
+  clean:coverage: rm -rf coverage
+  clean:data: rm -rf data
   start: |
     NODE_ENV=production
     yarn run start
