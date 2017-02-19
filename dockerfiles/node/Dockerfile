@@ -2,6 +2,7 @@ FROM mhart/alpine-node:6.9
 
 # Utils
 RUN apk add --update \
+    git \
     make \
     gcc \
     bash \
