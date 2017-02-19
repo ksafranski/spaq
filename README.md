@@ -17,7 +17,7 @@ React SPA with basic starting components, SystemJS and Bootstrap. [More Informat
 
 The goal of this project being rapid prototyping and development, the project uses Docker (with [Devlab](https://github.com/TechnologyAdvice/DevLab)) to allow both the application and its database to be run with very little configuration.
 
-*After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)* the application can be run with the following command:
+**After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)** the application can be run with the following command:
 
 ```
 devlab install start:dev
@@ -38,7 +38,7 @@ The following commands are available for working with the application:
   * `devlab clean:data`: removes `/data` (MongoDB data volume)
   * `devlab start`: starts the application (production)
   * `devlab start:dev`: starts the application (development)
-  * `devlab upgrade`: runs interactive yarn upgrade 
+  * `devlab upgrade`: runs interactive yarn upgrade
   * `devlab install`: installs all project dependencies
   * `devlab lint`: runs lint task
   * `devlab test`: runs linting and full tests (with coverage)
