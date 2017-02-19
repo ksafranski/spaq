@@ -29,6 +29,36 @@
       }
     }
   },
+  "role": {
+    "/": {
+      "get": {
+        "exec": "getRole",
+        "permission": "readRole"
+      },
+      "post": {
+        "exec": "createRole",
+        "permission": "writeRole"
+      }
+    },
+    "/:id": {
+      "get": {
+        "exec": "getRole",
+        "permission": "readRole"
+      },
+      "put": {
+        "exec": "updateRole",
+        "permission": "writeRole"
+      },
+      "patch": {
+        "exec": "updateRole",
+        "permission": "writeRole"
+      },
+      "delete": {
+        "exec": "deleteRole",
+        "permission": "writeRole"
+      }
+    }
+  }
   "authenticate": {
     "/": {
       "post": {
