@@ -58,7 +58,7 @@
         "permission": "writeRole"
       }
     }
-  }
+  },
   "authenticate": {
     "/": {
       "post": {

@@ -5,12 +5,20 @@ const uuid = require('uuid')
 const log = require('./lib/log')
 const response = require('./lib/response')
 const api = require('./lib/api')
-const apiConfig = require('./api.json')
-
 const pubRoot = path.resolve(__dirname, '../client')
-
 const PORT = process.env.PORT || 9999
 const app = express()
+let apiConfig
+
+// Load API config
+try {
+  apiConfig = require('./api.json')
+} catch (e) {
+  log.error('Failed to parse api.json', {
+    message: e.message
+  })
+  process.exit(1)
+}
 
 /* istanbul ignore next */
 const getIP = (req) => req.headers['x-forwarded-for'] || req.connection.remoteAddress
