@@ -16,6 +16,7 @@ const controller = {
   getPermissions: (roles) => Promise.reduce(roles, (acc, role) => {
     return mongodb.read(roleCollection, { name: role })
       .then((results) => {
+        /* istanbul ignore next */
         return results.length ? acc.concat(results[0].permissions) : acc
       })
   }, []),
