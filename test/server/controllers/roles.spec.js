@@ -1,4 +1,4 @@
-const role = require('server/controllers/role')
+const role = require('server/controllers/roles')
 const fixture = require('test/fixtures/server/controllers/role')
 
 describe('server > controllers > role', () => {

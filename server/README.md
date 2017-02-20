@@ -78,8 +78,8 @@ The server is designed to perform authentication and authorization using [JSON W
 
 The following controllers are setup to handle management of this process:
 
-* [`user`](/server/controllers/user.js): CRUD ops for user accounts
-* [`role`](/server/controllers/role.js): CRUD ops for user roles
+* [`users`](/server/controllers/users.js): CRUD ops for user accounts
+* [`roles`](/server/controllers/roles.js): CRUD ops for user roles
 * [`authenticate`](/server/controllers/authenticate.js): Process authentication and return JWT
 
 ### Users

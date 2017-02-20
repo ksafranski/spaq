@@ -1,4 +1,4 @@
-const user = require('server/controllers/user')
+const user = require('server/controllers/users')
 const fixture = require('test/fixtures/server/controllers/user')
 
 describe('server > controllers > user', () => {

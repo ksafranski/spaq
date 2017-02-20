@@ -1,7 +1,7 @@
 const Promise = require('bluebird')
 const mongodb = require('../server/adapters/mongodb')
 
-models = {
+const models = {
   user: require('../server/models/user'),
   role: require('../server/models/role')
 }
@@ -25,7 +25,7 @@ const seedData = {
   ]
 }
 
-console.log(`Seeding database with ${Object.keys(seedData).map(x => x+'s').join(', ')}`)
+console.log(`Seeding database with ${Object.keys(seedData).map(x => x + 's').join(', ')}`)
 
 // Seed into DB
 Promise.map(Object.keys(seedData), (collection) => {
