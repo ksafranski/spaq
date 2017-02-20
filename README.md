@@ -43,23 +43,25 @@ Configuration guide for the API (and setting up additional routes, models and co
 
 ## Commands
 
-The following commands are available for working with the application:
+The following commands are available for working with the application.
 
-  * `devlab env`: show all environemtn variables
-  * `devlab shell`: starts container(s) with interactive shell
-  * `devlab build`: builds `client/dist.js` for production runs
-  * `devlab clean`: removes dependencies, data, and generated coverage files
-  * `devlab clean:node_modules` removes `/node_modules`
-  * `devlab clean:jspm_packages`: removes `/client/jspm_packages`
-  * `devlab clean:coverage`: removes `/coverage`
-  * `devlab clean:data`: removes `/data` (MongoDB data volume)
-  * `devlab start`: starts the application (production)
-  * `devlab start:dev`: starts the application (development)
-  * `devlab upgrade`: runs interactive yarn upgrade
-  * `devlab install`: installs all project dependencies
-  * `devlab lint`: runs lint task
-  * `devlab test`: runs linting and full tests (with coverage)
-  * `devlab test:watch`: runs test suite with reload on change
+`devlab <COMMAND>`:
+
+  * `env`: show all environment variables
+  * `shell`: starts container(s) with interactive shell
+  * `build`: builds `client/dist.js` for production runs
+  * `clean`: removes dependencies, data, and generated coverage files
+  * `clean:node_modules` removes `/node_modules`
+  * `clean:jspm_packages`: removes `/client/jspm_packages`
+  * `clean:coverage`: removes `/coverage`
+  * `clean:data`: removes `/data` (MongoDB data volume)
+  * `start`: starts the application (production)
+  * `start:dev`: starts the application (development)
+  * `upgrade`: runs interactive yarn upgrade
+  * `install`: installs all project dependencies
+  * `lint`: runs lint task
+  * `test`: runs linting and full tests (with coverage)
+  * `test:watch`: runs test suite with reload on change
 
 _Note: many of these commands can be run in tandem, for instance, to start a clean (data-free) run of the application in `development` mode, run `devlab clean:data start:dev`._
 
