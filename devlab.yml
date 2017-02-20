@@ -1,4 +1,4 @@
-from: fluidbyte/node:latest
+from: fluidbyte/docker-node:latest
 services:
   - mongodb:
       from: mongo:latest
