@@ -4,6 +4,8 @@ services:
       from: mongo:latest
       volumes:
         - ${PWD}/data:/data/db
+      expose:
+        - 27017:27017
 expose:
   - 9999:9999
 env:
@@ -26,12 +28,14 @@ tasks:
   clean:jspm_packages: rm -rf client/jspm_packages
   clean:coverage: rm -rf coverage
   clean:data: rm -rf data
+  install: yarn && jspm install
+  upgrade: yarn upgrade-interactive
+  lint: yarn run lint
+  test: yarn run test
+  test:watch: yarn run test:watch
+  seed: node scripts/seed.js
   start: |
     export NODE_ENV=production
     yarn run start
   start:dev: yarn run dev
-  upgrade: yarn upgrade-interactive
-  install: yarn && jspm install
-  lint: yarn run lint
-  test: yarn run test
-  test:watch: yarn run test:watch
+  

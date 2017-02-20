@@ -55,13 +55,14 @@ The following commands are available for working with the application.
   * `clean:jspm_packages`: removes `/client/jspm_packages`
   * `clean:coverage`: removes `/coverage`
   * `clean:data`: removes `/data` (MongoDB data volume)
-  * `start`: starts the application (production)
-  * `start:dev`: starts the application (development)
-  * `upgrade`: runs interactive yarn upgrade
   * `install`: installs all project dependencies
   * `lint`: runs lint task
   * `test`: runs linting and full tests (with coverage)
   * `test:watch`: runs test suite with reload on change
+  * `seed`: runs `scripts/seed` to seed database with data
+  * `start`: starts the application (production)
+  * `start:dev`: starts the application (development)
+  * `upgrade`: runs interactive yarn upgrade
 
 _Note: many of these commands can be run in tandem, for instance, to start a clean (data-free) run of the application in `development` mode, run `devlab clean:data start:dev`._
 
