@@ -25,6 +25,9 @@ JSPM loads [BabelJS](https://babeljs.io/), along with [SystemJS](https://github.
 ## ReactJS
 The client includes [ReactJS](https://facebook.github.io/react/) as the framework, along with [react-enroute](https://github.com/tj/react-enroute) for simplified routing and [react-bootstrap](https://react-bootstrap.github.io/) for [Bootstrap](http://getbootstrap.com/) support.
 
+## API Access
+The client includes [Axios](https://www.npmjs.com/package/axios) for processing HTTP requests with abstractions in [`client/httpClient`](/client/httpClient.js).
+
 ## User Interface
 
 The [`index.ejs`](/client/index.ejs) file loads some default icons as well as a [bootswatch theme](https://www.bootstrapcdn.com/bootswatch/) and an override CSS file; [`css/main.css`](/client/css/main.css).

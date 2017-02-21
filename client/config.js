@@ -14,6 +14,7 @@ System.config({
   },
 
   map: {
+    'axios': 'npm:axios@0.15.3',
     'babel': 'npm:babel-core@5.8.38',
     'babel-runtime': 'npm:babel-runtime@5.8.38',
     'core-js': 'npm:core-js@1.2.7',
@@ -78,6 +79,15 @@ System.config({
       'process': 'github:jspm/nodelibs-process@0.1.2',
       'util': 'npm:util@0.10.3'
     },
+    'npm:axios@0.15.3': {
+      'buffer': 'github:jspm/nodelibs-buffer@0.1.0',
+      'follow-redirects': 'npm:follow-redirects@1.0.0',
+      'https': 'github:jspm/nodelibs-https@0.1.0',
+      'process': 'github:jspm/nodelibs-process@0.1.2',
+      'systemjs-json': 'github:systemjs/plugin-json@0.1.2',
+      'url': 'github:jspm/nodelibs-url@0.1.0',
+      'zlib': 'github:jspm/nodelibs-zlib@0.1.0'
+    },
     'npm:babel-runtime@5.8.38': {
       'process': 'github:jspm/nodelibs-process@0.1.2'
     },
@@ -90,7 +100,7 @@ System.config({
       'buffer': 'github:jspm/nodelibs-buffer@0.1.0',
       'pako': 'npm:pako@0.2.9',
       'process': 'github:jspm/nodelibs-process@0.1.2',
-      'readable-stream': 'npm:readable-stream@2.2.2',
+      'readable-stream': 'npm:readable-stream@2.2.3',
       'util': 'github:jspm/nodelibs-util@0.1.0'
     },
     'npm:buffer-shims@1.0.0': {
@@ -119,6 +129,9 @@ System.config({
     'npm:core-util-is@1.0.2': {
       'buffer': 'github:jspm/nodelibs-buffer@0.1.0'
     },
+    'npm:debug@2.6.1': {
+      'ms': 'npm:ms@0.7.2'
+    },
     'npm:domain-browser@1.1.7': {
       'events': 'github:jspm/nodelibs-events@0.1.1'
     },
@@ -139,6 +152,14 @@ System.config({
       'promise': 'npm:promise@7.1.1',
       'setimmediate': 'npm:setimmediate@1.0.5',
       'ua-parser-js': 'npm:ua-parser-js@0.7.12'
+    },
+    'npm:follow-redirects@1.0.0': {
+      'assert': 'github:jspm/nodelibs-assert@0.1.0',
+      'debug': 'npm:debug@2.6.1',
+      'http': 'github:jspm/nodelibs-http@1.7.1',
+      'https': 'github:jspm/nodelibs-https@0.1.0',
+      'stream': 'github:jspm/nodelibs-stream@0.1.0',
+      'url': 'github:jspm/nodelibs-url@0.1.0'
     },
     'npm:https-browserify@0.0.0': {
       'http': 'github:jspm/nodelibs-http@1.7.1'
@@ -257,7 +278,7 @@ System.config({
       'stream-browserify': 'npm:stream-browserify@1.0.0',
       'string_decoder': 'npm:string_decoder@0.10.31'
     },
-    'npm:readable-stream@2.2.2': {
+    'npm:readable-stream@2.2.3': {
       'buffer': 'github:jspm/nodelibs-buffer@0.1.0',
       'buffer-shims': 'npm:buffer-shims@1.0.0',
       'core-util-is': 'npm:core-util-is@1.0.2',
