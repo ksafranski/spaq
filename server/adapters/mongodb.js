@@ -1,6 +1,20 @@
-const conn = require('promised-mongo')(process.env.MONGODB_CONN)
+const pmongo = require('promised-mongo')
+const conn = pmongo(process.env.MONGODB_CONN)
+const _ = require('redash')
 
 const mongodb = {
+  /**
+   * Parses any _id properties in queries to BSON ObjectId's
+   * @param {Object} query The query to evaluate
+   * @returns {Object}
+   */
+  parseIds: (query) => _.pipe([
+    _.toPairs,
+    _.map((x) => {
+      return x[0] === '_id' ? x[1] = [ x[0], pmongo.ObjectId(x[1]) ] : x
+    }),
+    _.fromPairs
+  ])(query),
   /**
    * Creates new item in collection
    * @param {String} collection Name of the collection
@@ -14,7 +28,7 @@ const mongodb = {
    * @param {Object} [query] Query to execute
    */
   read: (collection, query = {}) => Promise.resolve().then(() => {
-    let cursor = conn[collection].find(query)
+    let cursor = conn[collection].find(mongodb.parseIds(query))
     return cursor.toArray()
   }),
   /**
@@ -24,12 +38,12 @@ const mongodb = {
    * @param {Object} data The data to update
    * @returns {Object.<promise>}
    */
-  update: (collection, query, data) => conn[collection].update(query, { $set: data }, { multi: true }),
+  update: (collection, query, data) => conn[collection].update(mongodb.parseIds(query), { $set: data }, { multi: true }),
   /**
    * Deletes item in collection
    * @param {String} collection Name of the collection
    */
-  delete: (collection, query = { id: null }) => conn[collection].remove(query)
+  delete: (collection, query = { _id: null }) => conn[collection].remove(mongodb.parseIds(query))
 }
 
 module.exports = mongodb

@@ -1,6 +1,18 @@
+const pmongo = require('promised-mongo')
 const mongodb = require('server/adapters/mongodb')
 
 describe('server > adapters > mongodb', () => {
+  let testId
+  beforeEach(() => mongodb.create('test', { foo: 'bar' }).then((res) => {
+    testId = res._id
+  }))
+  afterEach(() => mongodb.delete('test', { _id: testId }))
+  describe('parseIds', () => {
+    it('parses _id properties in queries and applies ObjectId', () => {
+      const actual = mongodb.parseIds({ _id: '551137c2f9e1fac808a5f572', foo: 'bar' })
+      expect(actual).to.deep.equal({ _id: pmongo.ObjectId('551137c2f9e1fac808a5f572'), foo: 'bar' })
+    })
+  })
   describe('create', () => {
     it('creates a new record in the collection and returns the data', () => {
       return mongodb.create('test', { foo: 'bar' })
@@ -10,30 +22,24 @@ describe('server > adapters > mongodb', () => {
     })
   })
   describe('read', () => {
-    before(() => mongodb.create('test', { _id: '12345' }))
-    after(() => mongodb.delete('test', { _id: '12345' }))
     it('finds record(s) based on query and returns array', () => {
-      return mongodb.read('test', { _id: '12345' })
+      return mongodb.read('test', { _id: testId })
         .then((res) => {
-          expect(res[0]).to.deep.equal({ _id: '12345' })
+          expect(res[0]).to.deep.equal({ _id: testId, foo: 'bar' })
         })
     })
   })
   describe('update', () => {
-    before(() => mongodb.create('test', { _id: '23456' }))
-    after(() => mongodb.delete('test', { _id: '23456' }))
     it('updates record(s) based on query and resolves', () => {
-      return mongodb.update('test', { _id: '23456' }, { foo: 'bar' })
+      return mongodb.update('test', { _id: testId }, { foo: 'bar' })
         .then((res) => {
           expect(res.ok).to.equal(1)
         })
     })
   })
   describe('delete', () => {
-    before(() => mongodb.create('test', { _id: '34567' }))
-    after(() => mongodb.delete('test', { _id: '34567' }))
     it('deletes record(s) based on query and resolves', () => {
-      return mongodb.delete({ _id: '34567' })
+      return mongodb.delete({ _id: testId })
         .then((res) => {
           expect(res.ok).to.equal(1)
         })
