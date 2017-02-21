@@ -5,9 +5,9 @@
 
 A server and client setup to allow for rapid prototyping SPA's. The goal of this project is to make few assumptions and setup everything needed to start development imediately.
 
-**Server:** Express-based server that serves both the static assets (`/client`) and an API. **[Documentation &raquo;](/server/README.md)**
+**[Server](/server/README.md)** Express-based server that serves both the static assets (`/client`) and an API. ([Documentation](/server/README.md))
 
-**Client:** React SPA with basic starting components, SystemJS and Bootstrap. **[Documentation &raquo;](/client/README.md)**
+**[Client](/client/README.md)** React SPA with basic starting components, SystemJS and Bootstrap. ([Documentation](/client/README.md))
 
 ## Quick Start
 
