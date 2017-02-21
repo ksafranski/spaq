@@ -10,9 +10,7 @@ const mongodb = {
    */
   parseIds: (query) => _.pipe([
     _.toPairs,
-    _.map((x) => {
-      return x[0] === '_id' ? x[1] = [ x[0], pmongo.ObjectId(x[1]) ] : x
-    }),
+    _.map(x => x[0] === '_id' ? [ x[0], pmongo.ObjectId(x[1]) ] : x),
     _.fromPairs
   ])(query),
   /**

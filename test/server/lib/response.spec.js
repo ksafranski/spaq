@@ -1,6 +1,7 @@
 const response = require('server/lib/response')
 const log = require('server/lib/log')
 const HTTPError = require('http-errors')
+const obey = require('obey')
 
 const reqFixture = {
   originalUrl: 'foo',
@@ -57,6 +58,23 @@ describe('server > lib > response', () => {
         ip: reqFixture.clientIP,
         code: 404,
         error: 'Not Found'
+      })
+    })
+    it('logs data validation error and sends response back through express', () => {
+      const resStatusSpy = sinon.spy(resFixture, 'status')
+      response.error(new obey.ValidationError([{ key: 'foo', value: 'bar', message: 'Must be foo' }]), reqFixture, resFixture, sinon.stub())
+      expect(resStatusSpy).to.be.calledWith(400)
+      expect(resSendStub).to.be.calledWith({
+        message: 'foo (bar): Must be foo',
+        collection: [{ key: 'foo', message: 'Must be foo', value: 'bar' }]
+      })
+      expect(logErrorStub).to.be.calledWith('Error Response', {
+        route: reqFixture.originalUrl,
+        method: reqFixture.method.toUpperCase(),
+        sessionId: reqFixture.sessionId,
+        ip: reqFixture.clientIP,
+        code: 400,
+        error: 'foo (bar): Must be foo'
       })
     })
     it('logs non-http error and sends response back through express', () => {
