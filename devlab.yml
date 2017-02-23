@@ -18,17 +18,15 @@ before: |
 tasks:
   env: env | sort
   shell: /bin/bash
-  build: yarn run build
+  bundle: yarn run bundle
   clean: |
     rm -rf node_modules
-    rm -rf client/jspm_packages
     rm -rf coverage
     rm -rf data
   clean:node_modules: rm -rf node_modules
-  clean:jspm_packages: rm -rf client/jspm_packages
   clean:coverage: rm -rf coverage
   clean:data: rm -rf data
-  install: yarn && jspm install
+  install: yarn
   upgrade: yarn upgrade-interactive
   lint: yarn run lint
   test: yarn run test
@@ -38,4 +36,4 @@ tasks:
     export NODE_ENV=production
     yarn run start
   start:dev: yarn run dev
-  
+

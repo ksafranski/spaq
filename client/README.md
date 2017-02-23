@@ -4,7 +4,7 @@
 
 The client is developed to work "out of the box", with very little configuration needed. It is hosted by the [server](/server) and runs alongside the API.
 
-Since the goal of this project is rapid prototyping the client uses [JSPM](http://jspm.io) with the system configured to separate out client modules in the [`/package.json`](/package.json) (under the `jspm` property) so if the desired goal is to separate the client application from the server this process can be done easily.
+The client uses [Webpack](https://webpack.github.io/) and [ReactJS](https://facebook.github.io/react/) as the primary components for module bundling and frameworking the application.
 
 ## Development vs. Production
 
@@ -20,7 +20,7 @@ Once the application has been built via `devlab build` it can then be run with t
 
 ## Module Loading & ES6 Compatibility
 
-JSPM loads [BabelJS](https://babeljs.io/), along with [SystemJS](https://github.com/systemjs/systemjs) to load modules.
+[Webpack](https://webpack.github.io/) is configured to bundle the application with ES6 support via Babel.
 
 ## ReactJS
 The client includes [ReactJS](https://facebook.github.io/react/) as the framework, along with [react-enroute](https://github.com/tj/react-enroute) for simplified routing and [react-bootstrap](https://react-bootstrap.github.io/) for [Bootstrap](http://getbootstrap.com/) support.
