@@ -5,7 +5,7 @@ class Home extends React.Component {
   render () {
     return (
       <PageHeader>
-        Hello!<br /><small>Welcome to this starter app</small>
+        Hello!!!<br /><small>Welcome to this starter app.</small>
       </PageHeader>
     )
   }

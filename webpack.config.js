@@ -1,11 +1,14 @@
 const path = require('path')
 const webpack = require('webpack')
-
 const clientPath = path.resolve(__dirname, './client')
 
 module.exports = {
-  entry: './client/main.js',
-  output: { path: clientPath, filename: 'bundle.js' },
+  entry: [ './client/main.js', 'webpack-hot-middleware/client?path=/__webpack_hmr'],
+  output: {
+    path: __dirname + '/client/dist/',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
   module: {
     loaders: [
       {
@@ -17,5 +20,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }

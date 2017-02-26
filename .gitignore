@@ -1,5 +1,6 @@
 node_modules/
 client/jspm_packages
+client/dist
 client/dist.js
 client/dist.js.map
 coverage/
