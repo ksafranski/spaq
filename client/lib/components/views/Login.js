@@ -4,7 +4,9 @@ import PageHeader from 'react-bootstrap/lib/PageHeader'
 class Login extends React.Component {
   render () {
     return (
-      <p>hi</p>
+      <PageHeader>
+        Login<br /><small>Welcome to this starter app.</small>
+      </PageHeader>
     )
   }
 }
