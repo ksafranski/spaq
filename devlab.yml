@@ -30,6 +30,8 @@ tasks:
   install: yarn
   upgrade: yarn upgrade-interactive
   lint: yarn run lint
+  lint:server: yarn run lint:server
+  lint:client: yarn run lint:client
   test: yarn run test
   test:watch: yarn run test:watch
   seed: node scripts/seed.js
