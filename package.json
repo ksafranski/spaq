@@ -17,16 +17,17 @@
   },
   "dependencies": {
     "argon2": "^0.15.0",
+    "axios": "^0.15.3",
     "babel-preset-stage-0": "^6.22.0",
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
     "bristol": "^0.3.3",
     "ejs": "^2.5.6",
     "express": "^4.14.1",
-    "genesis-core": "technologyadvice/genesis-core",
     "http-errors": "^1.5.1",
     "istanbul": "^0.4.5",
     "jwt-simple": "^0.5.1",
+    "lodash": "^4.17.4",
     "mongodb": "^2.2.24",
     "obey": "^1.7.3",
     "promised-mongo": "^1.2.0",
@@ -55,7 +56,8 @@
     "sinon-chai": "^2.8.0",
     "standard": "^8.6.0",
     "webpack": "1.12.12",
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^2.4.1",
+    "webpack-hot-middleware": "^2.17.1"
   },
   "standard": {
     "ignore": [

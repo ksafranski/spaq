@@ -6,3 +6,4 @@ client/dist.js.map
 coverage/
 data/
 yarn-error.log
+.yarn-cache/

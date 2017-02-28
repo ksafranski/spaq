@@ -66,6 +66,16 @@ The following commands are available for working with the application.
 
 _Note: many of these commands can be run in tandem, for instance, to start a clean (data-free) run of the application in `development` mode, run `devlab clean:data start:dev`._
 
+## Installing Dependencies
+
+Because Devlab runs the application in the container dependencies are installed through the container. When the project is run a `.yarn-cache` directory is created in the root of the project to maintain local cache for the project. To install new dependencies within the scope of the containerize application, run:
+
+```
+devlab -e "yarn add <DEPENDENCY>"
+```
+
+This will ensure that the dependency is installed (and built if need-be) inside the container and the `yarn.lock` and `.yarn-cache` are maintained properly.
+
 ## License
 
 This project is released under the MIT license. Feel free to use, abuse, modify, and so-on (with proper attribution).

@@ -14,6 +14,7 @@ env:
   - AUTH_JWT_SECRET=GFPNJJIFEDD2ECUGAD27
   - AUTH_JWT_EXPIRES=86400000
 before: |
+  yarn config set cache-folder ./.yarn-cache
   export MONGODB_CONN=mongodb://$MONGODB_PORT_27017_TCP_ADDR/test
 tasks:
   env: env | sort
