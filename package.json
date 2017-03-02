@@ -11,6 +11,8 @@
     "lint:server": "eslint --fix server/",
     "lint:client": "eslint --fix client/",
     "test": "yarn run lint && yarn run cover",
+    "test:server": "mocha test/server/**/*.spec.js",
+    "test:client": "mocha test/client/**/*.spec.js --compilers js:babel-core/register",
     "test:watch": "nodemon --exec \"mocha --compilers js:babel-core/register || exit 1\"",
     "cover": "istanbul cover _mocha -- --compilers js:babel-core/register",
     "start": "node ./server",

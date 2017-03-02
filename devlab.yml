@@ -33,6 +33,8 @@ tasks:
   lint:server: yarn run lint:server
   lint:client: yarn run lint:client
   test: yarn run test
+  test:server: yarn run test:server
+  test:client: yarn run test:client
   test:watch: yarn run test:watch
   seed: node scripts/seed.js
   start: |

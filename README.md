@@ -78,6 +78,17 @@ devlab -e "yarn add <DEPENDENCY>"
 
 This will ensure that the dependency is installed (and built if need-be) inside the container and the `yarn.lock` and `.yarn-cache` are maintained properly.
 
+## Personal Notes
+
+My goal for this project was two-fold:
+
+1. Establish where my knowledge was in regard to "full-stack", and finally get some time working more in the front-end/client-side
+2. Develop a framework that stopped looking at the front-end and back-end as two incompatible entities, identify, and utilize, the similarities
+
+Specifically to latter point; there are inherent differences but I tried to minimize these. The module structure is probably the most significant (primariyl due to ReactJS's Classing), however, testing, linting, and general structure of the code _should_ function similarly.
+
+It often seems that working FE or BE/Node is working in two different paradigms and I do not believe this is, nor needs to be, the case.
+
 ## License
 
 This project is released under the MIT license. Feel free to use, abuse, modify, and so-on (with proper attribution).
