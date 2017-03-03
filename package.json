@@ -12,9 +12,9 @@
     "lint:client": "eslint --fix client/",
     "test": "yarn run lint && yarn run cover",
     "test:server": "mocha test/server/**/*.spec.js",
-    "test:client": "mocha test/client/**/*.spec.js --compilers js:babel-core/register",
-    "test:watch": "nodemon --exec \"mocha --compilers js:babel-core/register || exit 1\"",
-    "cover": "istanbul cover _mocha -- --compilers js:babel-core/register",
+    "test:client": "mocha test/client/**/*.spec.js",
+    "test:watch": "nodemon --exec \"mocha || exit 1\"",
+    "cover": "istanbul cover _mocha",
     "start": "node ./server",
     "bundle": "webpack",
     "dev": "nodemon ./server --watch ./server"
@@ -57,7 +57,7 @@
     "eslint-plugin-promise": "^3.4.2",
     "eslint-plugin-react": "^6.10.0",
     "eslint-plugin-standard": "^2.0.1",
-    "istanbul": "^0.4.5",
+    "istanbul": "1.1.0-alpha.1",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "proxyquire": "^1.7.11",
@@ -70,7 +70,11 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "babel": {
-    "presets": [ "es2015", "stage-0", "react" ]
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ]
   },
   "eslintConfig": {
     "parser": "babel-eslint",
@@ -78,7 +82,10 @@
       "browser": true,
       "node": true
     },
-    "extends": ["standard", "standard-react"],
+    "extends": [
+      "standard",
+      "standard-react"
+    ],
     "globals": [
       "describe",
       "before",

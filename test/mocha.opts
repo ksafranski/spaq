@@ -1,3 +1,4 @@
 --require test/setup.js
 --recursive
 --timeout=10000
+--compilers js:babel-core/register

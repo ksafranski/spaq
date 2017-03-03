@@ -13,6 +13,10 @@ global.expect = chai.expect
 global.should = chai.should
 global.proxyquire = proxyquire
 
+global['sessionStorage'] = {
+  getItem: () => true
+}
+
 // Set chai props
 chai.use(chaiAsPromised)
 chai.use(schai)
