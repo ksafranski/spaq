@@ -7,3 +7,12 @@ html, body {
   width: 75%;
   margin: 3em auto;
 }
+
+.Login {
+  width: 350px;
+  margin: 25% auto;
+}
+
+.AlertBox {
+  margin: 15px 0;
+}

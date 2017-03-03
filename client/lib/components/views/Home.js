@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeader from 'react-bootstrap/lib/PageHeader'
 
-class Home extends React.Component {
+export default class Home extends React.Component {
   render () {
     return (
       <PageHeader>
@@ -10,5 +10,3 @@ class Home extends React.Component {
     )
   }
 }
-
-export default Home

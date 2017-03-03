@@ -12,6 +12,7 @@ global.sinon = sinon
 global.expect = chai.expect
 global.should = chai.should
 global.proxyquire = proxyquire
+global.location = { href: null }
 
 global['sessionStorage'] = {
   getItem: () => true

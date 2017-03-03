@@ -4,7 +4,7 @@ import Login from './views/Login'
 import Home from './views/Home'
 import NotFound from './views/NotFound'
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor (props, ctx) {
     super(props, ctx)
     this.state = {
@@ -22,5 +22,3 @@ class App extends React.Component {
     )
   }
 }
-
-export default App

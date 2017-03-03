@@ -60,6 +60,8 @@ The following commands are available for working with the application.
   * `lint:client`: runs lint task on client files only
   * `lint:server`: runs lint task on server files only
   * `test`: runs linting and full tests (with coverage)
+  * `test:client`: runs tests on client files only
+  * `test:server`: runs tests on server files only
   * `test:watch`: runs test suite with reload on change
   * `seed`: runs `scripts/seed` to seed database with data
   * `start`: starts the application (production)
