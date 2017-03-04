@@ -1,3 +1,6 @@
+[![CircleCI](https://img.shields.io/circleci/project/github/Fluidbyte/spaq/master.svg)](https://circleci.com/gh/Fluidbyte/spaq)
+[![Codecov](https://img.shields.io/codecov/c/github/Fluidbyte/spaq.svg)](https://codecov.io/gh/fluidbyte/spaq)
+
 # SPAQ
 **Single Page App, Quick!**
 
