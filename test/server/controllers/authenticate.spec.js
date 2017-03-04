@@ -77,6 +77,11 @@ describe('server > controllers > authenticate', () => {
         expect(err.message).to.equal('Not Authenticated')
       })
     })
+    it('responds with a 403 error if the token is invalid', () => {
+      return authenticate.verify({ headers: { authorization: 'nope' } }).catch((err) => {
+        expect(err.message).to.equal('Invalid Token')
+      })
+    })
     it('responds with a 403 error if JWT issuer is invalid', () => {
       const jwtTestInvalid = jwt.encode({
         iss: 'not-valid',

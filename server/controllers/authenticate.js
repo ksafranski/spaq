@@ -65,7 +65,12 @@ const controller = {
   verify: (event) => Promise.resolve().then(() => {
     if (!event.headers.authorization) throw new HTTPError(403, 'Not Authenticated')
     // Get token
-    const token = jwt.decode(event.headers.authorization, process.env.AUTH_JWT_SECRET)
+    let token
+    try {
+      token = jwt.decode(event.headers.authorization, process.env.AUTH_JWT_SECRET)
+    } catch (e) {
+      throw new HTTPError(403, 'Invalid Token')
+    }
     // Verify issuer
     if (token.iss !== pkg.name) throw new HTTPError(403, 'Invalid Token')
     // Verify expiration
