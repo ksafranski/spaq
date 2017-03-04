@@ -1,7 +1,8 @@
 /* global sessionStorage, location */
 import React from 'react'
+import NavBar from '../elements/NavBar'
 
-const checkAuth = function (Component) {
+const primary = function (Component) {
   class Wrapper extends React.Component {
     constructor (props, ctx) {
       super(props, ctx)
@@ -12,11 +13,14 @@ const checkAuth = function (Component) {
 
     render () {
       return (
-        <Component {...this.props} />
+        <div>
+          <NavBar />
+          <Component {...this.props} />
+        </div>
       )
     }
   }
   return Wrapper
 }
 
-export default checkAuth
+export default primary

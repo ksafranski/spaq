@@ -4,8 +4,8 @@ html, body {
 }
 
 #app {
-  width: 75%;
-  margin: 3em auto;
+  max-width: 970px;
+  margin: 20px auto;
 }
 
 .Login {
