@@ -10,11 +10,12 @@ export default class NavBar extends React.Component {
 
   render () {
     return (
-      <Navbar>
+      <Navbar collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <a href='/'>Application</a>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>

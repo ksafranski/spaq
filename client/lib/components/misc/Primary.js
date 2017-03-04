@@ -3,7 +3,7 @@ import React from 'react'
 import NavBar from '../elements/NavBar'
 
 const primary = function (Component) {
-  class Wrapper extends React.Component {
+  class Primary extends React.Component {
     constructor (props, ctx) {
       super(props, ctx)
       if (!sessionStorage.getItem('token')) {
@@ -15,12 +15,14 @@ const primary = function (Component) {
       return (
         <div>
           <NavBar />
-          <Component {...this.props} />
+          <div className='componentBody'>
+            <Component {...this.props} />
+          </div>
         </div>
       )
     }
   }
-  return Wrapper
+  return Primary
 }
 
 export default primary

@@ -3,9 +3,23 @@ html, body {
   height: 100%;
 }
 
-#app {
-  max-width: 970px;
-  margin: 20px auto;
+body {
+  padding: 20px;
+}
+
+.componentBody {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  .componentBody {
+    padding: 0 20px;
+  }
 }
 
 .Login {
