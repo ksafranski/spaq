@@ -4,8 +4,6 @@ services:
       from: mongo:latest
       volumes:
         - ${PWD}/data:/data/db
-      expose:
-        - 27017:27017
 expose:
   - 9999:9999
 env:
