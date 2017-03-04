@@ -1,23 +1,30 @@
 /* global sessionStorage, location */
 import React from 'react'
 import NavBar from '../elements/NavBar'
+import request from '../../httpClient'
 
 const primary = function (Component) {
   class Primary extends React.Component {
     constructor (props, ctx) {
       super(props, ctx)
-      if (!sessionStorage.getItem('token')) {
-        location.href = '/login'
+      this.state = {
+        permissions: false
       }
+      request('/authenticate', 'get')
+        .then((permissions) => this.setState({ permissions }))
     }
 
     render () {
       return (
         <div>
-          <NavBar />
-          <div className='componentBody'>
-            <Component {...this.props} />
+          {!!this.state.permissions && (
+          <div>
+            <NavBar />
+            <div className='componentBody'>
+              <Component permissions={this.state.permissions} {...this.props} />
+            </div>
           </div>
+          )}
         </div>
       )
     }
