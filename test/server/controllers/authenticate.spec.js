@@ -2,6 +2,7 @@ const authenticate = require('server/controllers/authenticate')
 const mongodb = require('server/adapters/mongodb')
 const jwt = require('jwt-simple')
 const argon2 = require('argon2')
+const pkg = require('package.json')
 
 describe('server > controllers > authenticate', () => {
   let testPassword
@@ -61,6 +62,49 @@ describe('server > controllers > authenticate', () => {
           const decodedToken = jwt.decode(token, process.env.AUTH_JWT_SECRET)
           expect(decodedToken.context.permissions).to.deep.equal([ 'readFoo', 'readBar' ])
         })
+    })
+  })
+  describe('verify', () => {
+    const jwtTest = jwt.encode({
+      iss: pkg.name,
+      exp: Date.now() + process.env.AUTH_JWT_EXPIRES,
+      context: {
+        permissions: [ 'foo' ]
+      }
+    }, process.env.AUTH_JWT_SECRET)
+    it('responds with a 403 error if no authorization header', () => {
+      return authenticate.verify({ headers: {} }).catch((err) => {
+        expect(err.message).to.equal('Not Authenticated')
+      })
+    })
+    it('responds with a 403 error if JWT issuer is invalid', () => {
+      const jwtTestInvalid = jwt.encode({
+        iss: 'not-valid',
+        exp: Date.now() + process.env.AUTH_JWT_EXPIRES,
+        context: {
+          permissions: [ 'foo' ]
+        }
+      }, process.env.AUTH_JWT_SECRET)
+      return authenticate.verify({ headers: { authorization: jwtTestInvalid } }).catch((err) => {
+        expect(err.message).to.equal('Invalid Token')
+      })
+    })
+    it('responds with a 403 error if JWT is expired', () => {
+      const jwtTestExpired = jwt.encode({
+        iss: pkg.name,
+        exp: Date.now() - 500,
+        context: {
+          permissions: [ 'foo' ]
+        }
+      }, process.env.AUTH_JWT_SECRET)
+      return authenticate.verify({ headers: { authorization: jwtTestExpired } }).catch((err) => {
+        expect(err.message).to.equal('Token Expired')
+      })
+    })
+    it('responds with permissions array if token is valid', () => {
+      return authenticate.verify({ headers: { authorization: jwtTest } }).then((permissions) => {
+        expect(permissions).to.deep.equal([ 'foo' ])
+      })
     })
   })
 })

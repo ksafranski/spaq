@@ -1,70 +1,32 @@
 {
   "users": {
     "/": {
-      "get": {
-        "exec": "getUser",
-        "permission": "readUser"
-      },
-      "post": {
-        "exec": "createUser",
-        "permission": "writeUser"
-      }
+      "get": { "exec": "getUser", "permission": "readUser" },
+      "post": { "exec": "createUser", "permission": "writeUser" }
     },
     "/:id": {
-      "get": {
-        "exec": "getUser",
-        "permission": "readUser"
-      },
-      "put": {
-        "exec": "updateUser",
-        "permission": "writeUser"
-      },
-      "patch": {
-        "exec": "updateUser",
-        "permission": "writeUser"
-      },
-      "delete": {
-        "exec": "deleteUser",
-        "permission": "writeUser"
-      }
+      "get": { "exec": "getUser", "permission": "readUser" },
+      "put": { "exec": "updateUser", "permission": "writeUser" },
+      "patch": { "exec": "updateUser", "permission": "writeUser" },
+      "delete": { "exec": "deleteUser", "permission": "writeUser" }
     }
   },
   "roles": {
     "/": {
-      "get": {
-        "exec": "getRole",
-        "permission": "readRole"
-      },
-      "post": {
-        "exec": "createRole",
-        "permission": "writeRole"
-      }
+      "get": { "exec": "getRole", "permission": "readRole" },
+      "post": { "exec": "createRole", "permission": "writeRole" }
     },
     "/:id": {
-      "get": {
-        "exec": "getRole",
-        "permission": "readRole"
-      },
-      "put": {
-        "exec": "updateRole",
-        "permission": "writeRole"
-      },
-      "patch": {
-        "exec": "updateRole",
-        "permission": "writeRole"
-      },
-      "delete": {
-        "exec": "deleteRole",
-        "permission": "writeRole"
-      }
+      "get": { "exec": "getRole", "permission": "readRole" },
+      "put": { "exec": "updateRole", "permission": "writeRole" },
+      "patch": { "exec": "updateRole", "permission": "writeRole" },
+      "delete": { "exec": "deleteRole", "permission": "writeRole" }
     }
   },
   "authenticate": {
     "/": {
-      "post": {
-        "exec": "authenticate",
-        "public": true
-      }
+      "post": { "exec": "authenticate", "public": true },
+      "get": { "exec": "verify", "public": true }
     }
   }
 }

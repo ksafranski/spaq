@@ -55,6 +55,23 @@ const controller = {
             }, process.env.AUTH_JWT_SECRET)
           })
       })
+  }),
+  /**
+   * Verifies authentication by decoding JWT and returning
+   * 403 (on fail) or array of permissions (on success)
+   * @param {Object} event The request event object
+   * @returns {Object.<Promise>}
+   */
+  verify: (event) => Promise.resolve().then(() => {
+    if (!event.headers.authorization) throw new HTTPError(403, 'Not Authenticated')
+    // Get token
+    const token = jwt.decode(event.headers.authorization, process.env.AUTH_JWT_SECRET)
+    // Verify issuer
+    if (token.iss !== pkg.name) throw new HTTPError(403, 'Invalid Token')
+    // Verify expiration
+    if (token.exp <= Date.now()) throw new HTTPError(403, 'Token Expired')
+    // Return array of permissions
+    return token.context.permissions
   })
 }
 
