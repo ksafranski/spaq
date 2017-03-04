@@ -8,12 +8,19 @@ describe('client > lib > httpClient', () => {
   before(() => {
     // Setup nocks
     nock('http://localhost').get('/api/testSuccess').reply(200, { foo: 'bar' })
+    nock('http://localhost').post('/api/testSuccessPayload').reply(200, { foo: 'bar' })
     nock('http://localhost').get('/api/testFail').reply(400, 'Invalid data')
     nock('http://localhost').get('/api/testFail403').reply(403, 'Invalid email address')
     nock('http://localhost').get('/api/testFail403Redir').reply(403, 'Invalid Token')
   })
   it('resolves with response on successful request', () => {
     return request('/testSuccess', 'get')
+      .then((res) => {
+        expect(res).to.deep.equal({ foo: 'bar' })
+      })
+  })
+  it('resolves with response on successful request with args', () => {
+    return request('/testSuccessPayload', 'post', { data: { foo: 'bar' } })
       .then((res) => {
         expect(res).to.deep.equal({ foo: 'bar' })
       })

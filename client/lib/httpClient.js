@@ -9,7 +9,7 @@ const instance = axios.create({
 })
 
 // Add authorization header if exists
-instance.defaults.headers.common['Authorization'] = sessionStorage.getItem('token') || null
+instance.defaults.headers.common['Authorization'] = sessionStorage.getItem('token')
 
 /**
  * Handles error responses

@@ -36,7 +36,7 @@ describe('server > controllers > authenticate', () => {
     })
     it('returns 403 when invalid email address is provided', () => {
       sinon.stub(mongodb, 'read', Promise.resolve([]))
-      authenticate.authenticate({ body: { email: 'jdoe@gmail.com', password: 'welcome' } })
+      authenticate.authenticate({ body: { email: 'dne@email.com', password: 'welcome' } })
         .catch((err) => {
           expect(err.message).to.equal('Invalid email address')
         })
