@@ -30,3 +30,7 @@ body {
 .AlertBox {
   margin: 15px 0;
 }
+
+.Link {
+  cursor: pointer;
+}

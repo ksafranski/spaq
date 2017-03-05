@@ -15,6 +15,13 @@ const seedData = {
       email: 'jdoe@gmail.com',
       password: 'welcome',
       roles: [ 'admin' ]
+    },
+    {
+      fname: 'Mary',
+      lname: 'Smith',
+      email: 'msmith@gmail.com',
+      password: 'welcome',
+      roles: [ 'admin' ]
     }
   ],
   'role': [
