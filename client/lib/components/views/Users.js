@@ -27,7 +27,7 @@ export default class Users extends React.Component {
       { property: 'fname', name: 'First Name', sortable: true },
       { property: 'lname', name: 'Last Name' },
       { property: 'email', name: 'Email' },
-      { property: 'edit', name: 'Edit' }
+      { property: 'edit', name: 'Edit', align: 'center' }
     ]
     return (
       <DataTable

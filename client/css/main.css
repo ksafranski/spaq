@@ -34,3 +34,10 @@ body {
 .Link {
   cursor: pointer;
 }
+
+
+.DataTable-loading, .DataTable-no-data {
+  padding: 50px;
+  text-align: center;
+  color: #666;
+}

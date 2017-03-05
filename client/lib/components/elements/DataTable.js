@@ -6,6 +6,7 @@ export default class DataTable extends React.Component {
     const dataColumns = this.props.columns.map((column, idx) => {
       return (
         <BootstrapDataColumn
+          align={column.align || 'left'}
           sortable={column.sortable}
           key={idx++}
           property={column.property}
@@ -15,7 +16,15 @@ export default class DataTable extends React.Component {
     })
     return (
       <div>
-        {!!this.props.data && (
+        {!this.props.data && (
+          <div className='DataTable-loading'>
+            <i className='fa fa-cog fa-spin fa-3x fa-fw' />
+          </div>
+        )}
+        {this.props.data.length === 0 && (
+          <h4 className='DataTable-no-data'>No Data</h4>
+        )}
+        {!!this.props.data && this.props.data.length >= 1 && (
         <BootstrapDataTable data={this.props.data} bordered striped responsive>
           {dataColumns}
         </BootstrapDataTable>
