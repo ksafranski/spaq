@@ -1,14 +1,14 @@
 import React from 'react'
 import request from '../../httpClient'
-import { BootstrapDataTable, BootstrapDataColumn } from 'react-bootstrap-tabular'
 import Link from '../elements/Link'
+import DataTable from '../elements/DataTable'
 
 export default class Users extends React.Component {
   constructor (props, ctx) {
     super(props, ctx)
     this.state = {
-      users: false,
-      error: false
+      error: false,
+      users: false
     }
     request('/users', 'get')
       .then((users) => {
@@ -23,17 +23,17 @@ export default class Users extends React.Component {
   }
 
   render () {
+    const columns = [
+      { property: 'fname', name: 'First Name', sortable: true },
+      { property: 'lname', name: 'Last Name' },
+      { property: 'email', name: 'Email' },
+      { property: 'edit', name: 'Edit' }
+    ]
     return (
-      <div>
-        {!!this.state.users && (
-        <BootstrapDataTable data={this.state.users} bordered striped responsive>
-          <BootstrapDataColumn property={'fname'} name={'First Name'} sortable />
-          <BootstrapDataColumn property={'lname'} name={'Last Name'} sortable />
-          <BootstrapDataColumn property={'email'} name={'Email'} sortable />
-          <BootstrapDataColumn property={'edit'} name={'Edit'} align='center' />
-        </BootstrapDataTable>
-        )}
-      </div>
+      <DataTable
+        data={this.state.users}
+        columns={columns}
+      />
     )
   }
 }
