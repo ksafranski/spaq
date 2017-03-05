@@ -21,7 +21,7 @@ const primary = function (Component) {
           <div>
             <NavBar />
             <div className='componentBody'>
-              <Component permissions={this.state.permissions} {...this.props} />
+              <Component {...this.state} {...this.props} />
             </div>
           </div>
           )}
