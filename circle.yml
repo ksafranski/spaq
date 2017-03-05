@@ -11,6 +11,7 @@ general:
 dependencies:
   override:
     - npm i devlab -g
+    - sudo rm -rf .yarn-cache/
     - devlab install
     
 test:
