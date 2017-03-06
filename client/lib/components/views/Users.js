@@ -10,12 +10,13 @@ export default class Users extends React.Component {
       error: false,
       users: false
     }
+    // Get and build users data
     request('/users', 'get')
       .then((users) => {
         users.map((x) => {
           // Add edit link
-          const path = `/users/${x._id}`
-          x.edit = <Link to={path} icon='glyphicon glyphicon-pencil' />
+          x.edit = <Link to={`/users/${x._id}`} icon='glyphicon glyphicon-pencil' />
+          x.delete = <Link to={`/`} icon='glyphicon glyphicon-remove' />
           return x
         })
         this.setState({ users })
@@ -27,7 +28,8 @@ export default class Users extends React.Component {
       { property: 'fname', name: 'First Name', sortable: true },
       { property: 'lname', name: 'Last Name' },
       { property: 'email', name: 'Email' },
-      { property: 'edit', name: 'Edit', align: 'center' }
+      { property: 'edit', name: 'Edit', align: 'center' },
+      { property: 'delete', name: 'Delete', align: 'center' }
     ]
     return (
       <DataTable

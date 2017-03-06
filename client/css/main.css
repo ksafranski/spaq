@@ -41,3 +41,7 @@ body {
   text-align: center;
   color: #666;
 }
+
+.row {
+  padding: 10px 0;
+}

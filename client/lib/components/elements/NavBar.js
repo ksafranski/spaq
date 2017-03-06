@@ -3,11 +3,6 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import Link from './Link'
 
 export default class NavBar extends React.Component {
-  constructor (props, ctx) {
-    super(props, ctx)
-    console.log('PROPS', props)
-  }
-
   handleLogout = () => {
     sessionStorage.removeItem('token')
     location.href = '/login'
