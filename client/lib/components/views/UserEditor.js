@@ -114,5 +114,5 @@ export default class UserEditor extends React.Component {
 }
 
 UserEditor.propTypes = {
-  params: React.PropTypes.object.required
+  params: React.PropTypes.object.isRequired
 }

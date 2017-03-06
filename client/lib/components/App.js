@@ -8,16 +8,30 @@ import UserEditor from './views/UserEditor'
 import NotFound from './views/NotFound'
 
 export default class App extends React.Component {
+  static childContextTypes = {
+    router: React.PropTypes.object
+  }
+
   constructor (props, ctx) {
     super(props, ctx)
-    this.state = {
-      location: window.location.pathname
+    this._listener = props.history.listen(() => this.forceUpdate())
+  }
+
+  getChildContext () {
+    return {
+      router: {
+        push: this.props.history.push
+      }
     }
+  }
+
+  componentWillUnmount () {
+    this._listener()
   }
 
   render () {
     return (
-      <Router {...this.state}>
+      <Router location={this.props.history.location.pathname}>
         <Route path='/' component={primary(Home)} />
         <Route path='/users' component={primary(Users)} />
         <Route path='/users/:id' component={primary(UserEditor)} />
@@ -26,4 +40,8 @@ export default class App extends React.Component {
       </Router>
     )
   }
+}
+
+App.propTypes = {
+  history: React.PropTypes.object.isRequired
 }

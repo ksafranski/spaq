@@ -1,13 +1,21 @@
 import React from 'react'
-import createHistory from 'history/createBrowserHistory'
 
-const history = createHistory()
+const withRouter = (Component) => {
+  class WrappedComponent extends React.Component {
+    static contextTypes = {
+      router: React.PropTypes.object
+    }
 
-export default class Link extends React.Component {
+    render () {
+      return React.createElement(Component, { ...this.props, router: this.context.router })
+    }
+  }
+  return WrappedComponent
+}
 
+export class Link extends React.Component {
   handleClick = () => {
-    history.push(this.props.to)
-    location.href = this.props.to
+    this.props.router.push(this.props.to)
   }
 
   render () {
@@ -22,5 +30,8 @@ export default class Link extends React.Component {
 Link.propTypes = {
   to: React.PropTypes.string.isRequired,
   title: React.PropTypes.string,
-  icon: React.PropTypes.string
+  icon: React.PropTypes.string,
+  router: React.PropTypes.object.isRequired
 }
+
+export default withRouter(Link)
