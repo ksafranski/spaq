@@ -14,11 +14,13 @@ export default class App extends React.Component {
 
   constructor (props, ctx) {
     super(props, ctx)
+    // When history is changed, force render update
     this._listener = props.history.listen(() => this.forceUpdate())
   }
 
   getChildContext () {
     return {
+      // Creates context for router
       router: {
         push: this.props.history.push
       }
@@ -26,6 +28,7 @@ export default class App extends React.Component {
   }
 
   componentWillUnmount () {
+    // Removes listener to prevent leaks
     this._listener()
   }
 

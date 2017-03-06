@@ -7,6 +7,7 @@ const withRouter = (Component) => {
     }
 
     render () {
+      // Create an instance of the Component with router
       return React.createElement(Component, { ...this.props, router: this.context.router })
     }
   }
