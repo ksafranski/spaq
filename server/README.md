@@ -61,7 +61,7 @@ module.exports = {
   getFoo: (event) => mongodb.read({ _id: event.params.id })
     .then((result) => {
       // ...perform any actions on data here...
-      return result
+      return result // -> will be passed through middleware chain and returned with a 200
     })
     .catch((err) => {
       // if you wish to return a specific error

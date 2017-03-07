@@ -19,10 +19,12 @@ The goal of this project being rapid prototyping and development, the project us
 **After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)**, the application can be run with the following command:
 
 ```
-devlab install start:dev
+devlab install seed start:dev
 ```
 
-_Note: after the first run, the `install` command is not needed as all dependencies will be installed_
+The above command will install dependencies, seed the database (see [/scripts/seed.js](/scripts/seed.js)) and start the server in development mode with `nodemon` to reload server changes and hot-reloading on the client. You can access the server at `http://localhost:9999`.
+
+_The client application starts at a login screen. Credentials can be found/modified in [/scripts/seed.js](/scripts/seed.js)_
 
 ## Configuration
 
@@ -87,13 +89,13 @@ This will ensure that the dependency is installed (and built if need-be) inside 
 
 My goal for this project was two-fold:
 
-1. Establish where my knowledge was in regard to "full-stack", and finally get some time working more in the front-end/client-side
-2. Develop a framework that stopped looking at the front-end and back-end as two incompatible entities, identify, and utilize, the similarities
+1. Give myself an excuse to spend more time in client-side development again, as recently much of my work has been on Node and backend development.
+2. Develop a framework that stopped looking at the front-end and back-end as two incompatible entities; identify, and utilize, the similarities.
 
-Specifically to latter point; there are inherent differences but I tried to minimize these. The module structure is probably the most significant (primariyl due to ReactJS's Classing), however, testing, linting, and general structure of the code _should_ function similarly.
+Specifically to latter point; there are inherent differences but I tried to minimize these. The module structure is probably the most significant (primarily due to ReactJS's OOP), however, testing, linting, and general structure of the code _should_ function similarly.
 
 It often seems that working FE or BE/Node is working in two different paradigms and I do not believe this is, nor needs to be, the case.
 
 ## License
 
-This project is released under the MIT license. Feel free to use, abuse, modify, and so-on (with proper attribution).
+This project is released under the MIT license. Feel free to use, abuse, modify, and so-on.
