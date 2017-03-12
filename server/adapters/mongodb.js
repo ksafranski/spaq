@@ -1,6 +1,12 @@
-const pmongo = require('promised-mongo')
-const conn = pmongo(process.env.MONGODB_CONN)
 const _ = require('redash')
+const { MongoClient, ObjectID } = require('mongodb')
+
+// Establish connection
+let conn
+const getConnection = () => {
+  conn = conn || MongoClient.connect(process.env.MONGODB_CONN)
+  return conn
+}
 
 const mongodb = {
   /**
@@ -10,7 +16,7 @@ const mongodb = {
    */
   parseIds: (query) => _.pipe([
     _.toPairs,
-    _.map(x => x[0] === '_id' ? [ x[0], pmongo.ObjectId(x[1]) ] : x),
+    _.map(x => x[0] === '_id' ? [ x[0], ObjectID(x[1]) ] : x),
     _.fromPairs
   ])(query),
   /**
@@ -19,14 +25,17 @@ const mongodb = {
    * @param {Object} data The data to insert
    * @returns {Object.<promise>}
    */
-  create: (collection, data) => conn[collection].insert(data),
+  create: (collection, data) => getConnection().then((db) => {
+    return db.collection(collection).insert(data)
+      .then((res) => res.ops[0])
+  }),
   /**
    * Reads item(s) from collection
    * @param {String} collection Name of the collection
    * @param {Object} [query] Query to execute
    */
-  read: (collection, query = {}) => Promise.resolve().then(() => {
-    let cursor = conn[collection].find(mongodb.parseIds(query))
+  read: (collection, query = {}) => getConnection().then((db) => {
+    let cursor = db.collection(collection).find(mongodb.parseIds(query))
     return cursor.toArray()
   }),
   /**
@@ -36,12 +45,18 @@ const mongodb = {
    * @param {Object} data The data to update
    * @returns {Object.<promise>}
    */
-  update: (collection, query, data) => conn[collection].update(mongodb.parseIds(query), { $set: data }, { multi: true }),
+  update: (collection, query, data) => getConnection().then((db) => {
+    return db.collection(collection).update(mongodb.parseIds(query), { $set: data }, { multi: true })
+      .then((res) => res.result)
+  }),
   /**
    * Deletes item in collection
    * @param {String} collection Name of the collection
    */
-  delete: (collection, query = { _id: null }) => conn[collection].remove(mongodb.parseIds(query))
+  delete: (collection, query = { _id: null }) => getConnection().then((db) => {
+    return db.collection(collection).remove(mongodb.parseIds(query))
+      .then((res) => res.result)
+  })
 }
 
 module.exports = mongodb

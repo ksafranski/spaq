@@ -45,3 +45,12 @@ body {
 .row {
   padding: 10px 0;
 }
+
+/* fix weird navbar width issues */
+.container {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100% !important;
+}

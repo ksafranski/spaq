@@ -1,4 +1,4 @@
-const pmongo = require('promised-mongo')
+const { ObjectID } = require('mongodb')
 const mongodb = require('server/adapters/mongodb')
 
 describe('server > adapters > mongodb', () => {
@@ -10,7 +10,7 @@ describe('server > adapters > mongodb', () => {
   describe('parseIds', () => {
     it('parses _id properties in queries and applies ObjectId', () => {
       const actual = mongodb.parseIds({ _id: '551137c2f9e1fac808a5f572', foo: 'bar' })
-      expect(actual).to.deep.equal({ _id: pmongo.ObjectId('551137c2f9e1fac808a5f572'), foo: 'bar' })
+      expect(actual).to.deep.equal({ _id: ObjectID('551137c2f9e1fac808a5f572'), foo: 'bar' })
     })
   })
   describe('create', () => {
@@ -39,7 +39,7 @@ describe('server > adapters > mongodb', () => {
   })
   describe('delete', () => {
     it('deletes record(s) based on query and resolves', () => {
-      return mongodb.delete({ _id: testId })
+      return mongodb.delete('test', { _id: testId })
         .then((res) => {
           expect(res.ok).to.equal(1)
         })
