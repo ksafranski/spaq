@@ -12,11 +12,11 @@ In order to simplify production runs, the primary file for the application is an
 
 ### Development
 
-Running the application via `devlab start:dev` will load in development mode and use the source files.
+Running the application via `binci start:dev` will load in development mode and use the source files.
 
 ### Production
 
-Once the application has been built via `devlab build` it can then be run with the generated `dist.js` file. Running `devlab start` will start the application in production mode.
+Once the application has been built via `binci build` it can then be run with the generated `dist.js` file. Running `binci start` will start the application in production mode.
 
 ## Module Loading & ES6 Compatibility
 

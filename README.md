@@ -14,12 +14,12 @@ A server and client setup to allow for rapid prototyping SPA's. The goal of this
 
 ## Quick Start
 
-The goal of this project being rapid prototyping and development, the project uses Docker (with [Devlab](https://github.com/TechnologyAdvice/DevLab)) to allow both the application and its database to be run with very little configuration.
+The goal of this project being rapid prototyping and development, the project uses Docker (with [Binci](https://github.com/binci/binci)) to allow both the application and its database to be run with very little configuration.
 
-**After installing [Docker](https://docs.docker.com/engine/installation/) and [Devlab](https://github.com/TechnologyAdvice/DevLab)**, the application can be run with the following command:
+**After installing [Docker](https://docs.docker.com/engine/installation/) and [Binci](https://github.com/binci/binci)**, the application can be run with the following command:
 
 ```
-devlab install seed start:dev
+binci install seed start:dev
 ```
 
 The above command will install dependencies, seed the database (see [/scripts/seed.js](/scripts/seed.js)) and start the server in development mode with `nodemon` to reload server changes and hot-reloading on the client. You can access the server at `http://localhost:9999`.
@@ -28,7 +28,7 @@ _The client application starts at a login screen. Credentials can be found/modif
 
 ## Configuration
 
-The default configuration in [`devlab.yml`](devlab.yml) includes the following:
+The default configuration in [`binci.yml`](binci.yml) includes the following:
 
 ### Ports
 
@@ -50,7 +50,7 @@ Configuration guide for the API (and setting up additional routes, models and co
 
 The following commands are available for working with the application.
 
-`devlab <COMMAND>`:
+`binci <COMMAND>`:
 
   * `env`: show all environment variables
   * `shell`: starts container(s) with interactive shell
@@ -73,14 +73,14 @@ The following commands are available for working with the application.
   * `start:dev`: starts the application (development)
   * `upgrade`: runs interactive yarn upgrade
 
-_Note: many of these commands can be run in tandem, for instance, to start a clean (data-free) run of the application in `development` mode, run `devlab clean:data start:dev`._
+_Note: many of these commands can be run in tandem, for instance, to start a clean (data-free) run of the application in `development` mode, run `binci clean:data start:dev`._
 
 ## Installing Dependencies
 
-Because Devlab runs the application in the container dependencies are installed through the container. When the project is run a `.yarn-cache` directory is created in the root of the project to maintain local cache for the project. To install new dependencies within the scope of the containerize application, run:
+Because Binci runs the application in the container dependencies are installed through the container. When the project is run a `.yarn-cache` directory is created in the root of the project to maintain local cache for the project. To install new dependencies within the scope of the containerize application, run:
 
 ```
-devlab -e "yarn add <DEPENDENCY>"
+binci -e "yarn add <DEPENDENCY>"
 ```
 
 This will ensure that the dependency is installed (and built if need-be) inside the container and the `yarn.lock` and `.yarn-cache` are maintained properly.
